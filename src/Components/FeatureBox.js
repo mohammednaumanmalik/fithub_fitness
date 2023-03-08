@@ -4,11 +4,12 @@ function FeatureBox(props) {
   return (
     <div className="a-box">
       FeatureBox
-      <div className="a-b-img">
-        <img src={props.image} alt="" />
-      </div>
+      <div className="a-b-img"></div>
       <div className="a-b-text">
-        <h2>{props.title}</h2>
+        <h2>{props.muscle}</h2>
+        <p>{props.equipment}</p>
+        <p>{props.name}</p>
+
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
       </div>
     </div>
