@@ -1,23 +1,20 @@
 import "./App.css";
-import Navbar from "./Components/Navbar";
-import Header from "./Components/Header";
-import Features from "./Components/Features";
-import Offer from "./Components/Offer";
-import About from "./Components/About";
-import Contact from "./Components/Contact";
-import Fetchdata from "./Components/Fetchdata";
+import Parent from "./Components/Parent";
+// import Fetchdata from "./Components/Fetchdata";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// import Join from "./Components/Join";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Header />
-      <Features />
-      <Offer />
-      <About />
-      <Contact />
-      <Fetchdata />
-    </div>
+    <>
+      <BrowserRouter basename="">
+        <div>
+          {" "}
+          <Parent />
+        </div>
+      </BrowserRouter>{" "}
+    </>
   );
 }
 

@@ -1,80 +1,168 @@
 import React from "react";
-import FeatureBox from "./FeatureBox";
-import fimage1 from "../Images/1.svg";
-import fimage2 from "../Images/2.svg";
-import fimage3 from "../Images/3.svg";
-import fimage4 from "../Images/4.svg";
+//import FeatureBox from "./FeatureBox";
+//import fimage1 from "../Images/1.svg";
+//import fimage2 from "../Images/2.svg";
+//import fimage3 from "../Images/3.svg";
+//import fimage4 from "../Images/4.svg";
 import { useState, useEffect } from "react";
-import Carousel from "react-elastic-carousel";
-
+//import Carousel from "react-bootstrap/Carousel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+// import { Carousel } from "bootstrap";
+// import "./slickdemo.css";
+import { Link } from "react-router-dom";
+const getExerciseDescription = (categoryName) => {
+  switch (categoryName) {
+    case "Abs":
+      return "Strengthen your core and tone your abs with these exercises.";
+    case "Shoulders":
+      return "Build strong and defined shoulders with these workouts.";
+    case "Arms":
+      return "Get bigger and stronger biceps and triceps with these exercises.";
+    case "Legs":
+      return "Sculpt your lower body and improve your leg strength with these workouts.";
+    case "Back":
+      return "Strengthen your back muscles and improve your posture with these exercises.";
+    case "Chest":
+      return "Develop a strong and well-defined chest with these exercises.";
+    default:
+  }
+};
 function Features() {
   const [data, setData] = useState([]);
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "8e2a062680msh2c5992bcba67bf8p1220d2jsn6e3b78db8b6d",
-      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-    },
+
+  useEffect(() => {
+    fetchData();
+  }, [data]);
+
+  const fetchData = () => {
+    fetch("https://wger.de/api/v2/exercisebaseinfo/?limit=70&offset=70")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setData(result);
+        // console.log(result);
+      });
   };
 
-  useEffect((id) => {
-    fetch("https://exercisedb.p.rapidapi.com/exercises/", options)
-      .then((response) => response.json())
-      .then((response) => {
-        setData(response);
-        console.log(response);
-      });
-  }, []);
   let _break = false;
 
   const breaker = () => {
     _break = true;
   };
-  const breakPoints = [];
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 400,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 1000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        },
+      },
+
+      {
+        breakpoint: 700,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 1000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 1000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        },
+      },
+    ],
+  };
   return (
     <>
       <div id="features">
-        <h1>FEATURES</h1> <br />
-        <Carousel breakPoints={breakPoints}>
-          <div className="a-container">
-            {data.slice(0, 20).map((item, idx) => {
-              if (idx === 0) {
-                return breaker();
-              }
-              if (idx === 1) {
-                return breaker();
-              }
-              if (idx === 2) {
-                return breaker();
-              }
-              if (idx === 4) {
-                return breaker();
-              }
-              if (idx === 7) {
-                return breaker();
-              }
-              if (idx === 9) {
-                return breaker();
-              }
+        <h1>EXERCISES</h1> <br />
+        <div className="a-container">
+          <Slider {...settings} className="slider">
+            {data.results
+              ?.filter(
+                (item) => item.images.length > 0 && item.equipment.length > 0
+              )
+              .slice(1, 6)
+              .map((item, idx) => {
+                return (
+                  <div className="a-box1">
+                    <div className="a-box">
+                      <div className="a-b-img">
+                        <img
+                          src={
+                            item.images.length > 0 ? item.images[0].image : ""
+                          }
+                          alt={item.name}
+                        />
+                      </div>
 
-              if (idx === 10) {
-                return breaker();
-              }
+                      <div className="a-b-text">
+                        <div style={{ display: "inline-flex" }}>
+                          <p>
+                            <button
+                              style={{ fontSize: "1rem" }}
+                              className="name-button"
+                            >
+                              <strong className="str-name">
+                                {item.category.name}
+                              </strong>
+                            </button>
+                          </p>
 
-              return (
-                <div className="a-box">
-                  <div className="a-b-img">
-                    <img src={item.gifUrl} alt="" style={{}} />
+                          <p>
+                            <button
+                              style={{ fontSize: "1rem" }}
+                              className="name-button-s"
+                            >
+                              <strong className="str-name">
+                                {item.equipment[0]?.name}
+                              </strong>
+                            </button>
+                          </p>
+                        </div>
+                        <p
+                          style={{ fontSize: "1rem" }}
+                          className="name-button-s-description"
+                        >
+                          <strong className="str-name-desc">
+                            {getExerciseDescription(item.category.name)}
+                          </strong>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="a-b-text">
-                    <p style={{ Color: "red" }}> {item.bodyPart}</p>
-                    <p>{item.equipment}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Carousel>
+                );
+              })}
+          </Slider>
+        </div>
       </div>
     </>
   );

@@ -32,7 +32,7 @@ function Navbar() {
         </li>
         <li>
           <Link to="features" smooth={true} duration={1000}>
-            FEATURES
+            EXERCISES
           </Link>
         </li>
         <li>
