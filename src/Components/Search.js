@@ -163,7 +163,7 @@ function Search() {
                           </div>
                           <p className="name-button-s-description-s">
                             <p className="str-name-desc-s">
-                              {getExerciseDescription(item.category.nam)}
+                              {getExerciseDescription(item.category.name)}
                             </p>
                           </p>
                         </div>
