@@ -1063,15 +1063,16 @@ nav .menu-btn,
     align-content: center;
     text-align: center;
     background-color: #ececec;
-
-    background: #6eb59d;
+    background: linear-gradient(to bottom right , #403F44, #1E1B32)
   }
   .grid-item {
     background-color: #ececec;
     margin-left: -50px;
-    background: #6eb59d;
+    background: linear-gradient(to bottom right , #403F44, #1E1B32)
   }
-}
+    
+  }
+
 
 @media (min-width: 768px) {
   .grid-container {
