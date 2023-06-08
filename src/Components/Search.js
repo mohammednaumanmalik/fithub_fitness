@@ -13,7 +13,7 @@ import Slider from "react-slick";
 // import { Carousel } from "bootstrap";
 // import "./slickdemo.css";
 import { Link } from "react-router-dom";
-import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 
 const getExerciseDescription = (categoryName) => {
   switch (categoryName) {
@@ -138,7 +138,7 @@ function Search() {
               return (
                 <ul>
                   <li>
-                    <Fade top big>
+                    <Zoom>
                       <div className="grid-item">
                         <div className="a-box-s">
                           <div className="a-b-img-s">
@@ -173,7 +173,7 @@ function Search() {
                           </div>
                         </div>
                       </div>
-                    </Fade>
+                    </Zoom>
                   </li>
                 </ul>
               );
