@@ -12,6 +12,8 @@ import Slider from "react-slick";
 // import { Carousel } from "bootstrap";
 // import "./slickdemo.css";
 import { Link } from "react-router-dom";
+import Fade from "react-reveal/Fade";
+
 const getExerciseDescription = (categoryName) => {
   switch (categoryName) {
     case "Abs":
@@ -113,52 +115,54 @@ function Features() {
               .slice(1, 6)
               .map((item, idx) => {
                 return (
-                  <div className="a-box1">
-                    <div className="a-box">
-                      <div className="a-b-img">
-                        <img
-                          src={
-                            item.images.length > 0 ? item.images[0].image : ""
-                          }
-                          alt={item.name}
-                        />
-                      </div>
+                  <Fade top>
+                    <div className="a-box1">
+                      <div className="a-box">
+                        <div className="a-b-img">
+                          <img
+                            src={
+                              item.images.length > 0 ? item.images[0].image : ""
+                            }
+                            alt={item.name}
+                          />
+                        </div>
 
-                      <div className="a-b-text">
-                        <div style={{ display: "inline-flex" }}>
-                          <p>
-                            <button
-                              style={{ fontSize: "1rem" }}
-                              className="name-button"
-                            >
-                              <strong className="str-name">
-                                {item.category.name}
-                              </strong>
-                            </button>
-                          </p>
+                        <div className="a-b-text">
+                          <div style={{ display: "inline-flex" }}>
+                            <p>
+                              <button
+                                style={{ fontSize: "1rem" }}
+                                className="name-button"
+                              >
+                                <strong className="str-name">
+                                  {item.category.name}
+                                </strong>
+                              </button>
+                            </p>
 
-                          <p>
-                            <button
-                              style={{ fontSize: "1rem" }}
-                              className="name-button-s"
-                            >
-                              <strong className="str-name">
-                                {item.equipment[0]?.name}
-                              </strong>
-                            </button>
+                            <p>
+                              <button
+                                style={{ fontSize: "1rem" }}
+                                className="name-button-s"
+                              >
+                                <strong className="str-name">
+                                  {item.equipment[0]?.name}
+                                </strong>
+                              </button>
+                            </p>
+                          </div>
+                          <p
+                            style={{ fontSize: "1rem" }}
+                            className="name-button-s-description"
+                          >
+                            <strong className="str-name-desc">
+                              {getExerciseDescription(item.category.name)}
+                            </strong>
                           </p>
                         </div>
-                        <p
-                          style={{ fontSize: "1rem" }}
-                          className="name-button-s-description"
-                        >
-                          <strong className="str-name-desc">
-                            {getExerciseDescription(item.category.name)}
-                          </strong>
-                        </p>
                       </div>
                     </div>
-                  </div>
+                  </Fade>
                 );
               })}
           </Slider>

@@ -13,6 +13,7 @@ import Slider from "react-slick";
 // import { Carousel } from "bootstrap";
 // import "./slickdemo.css";
 import { Link } from "react-router-dom";
+import Fade from "react-reveal/Fade";
 
 const getExerciseDescription = (categoryName) => {
   switch (categoryName) {
@@ -137,38 +138,42 @@ function Search() {
               return (
                 <ul>
                   <li>
-                    <div className="grid-item">
-                      <div className="a-box-s">
-                        <div className="a-b-img-s">
-                          <img
-                            src={
-                              item.images.length > 0 ? item.images[0].image : ""
-                            }
-                            alt={item.name}
-                          />
-                        </div>
+                    <Fade top big>
+                      <div className="grid-item">
+                        <div className="a-box-s">
+                          <div className="a-b-img-s">
+                            <img
+                              src={
+                                item.images.length > 0
+                                  ? item.images[0].image
+                                  : ""
+                              }
+                              alt={item.name}
+                            />
+                          </div>
 
-                        <div className="a-b-text-s">
-                          <div className="a-b-text-s-div">
-                            <p>
-                              <button
-                                style={{ fontSize: "1rem" }}
-                                className="name-button"
-                              >
-                                <strong className="str-name-s">
-                                  {item.category.name}
-                                </strong>
-                              </button>
+                          <div className="a-b-text-s">
+                            <div className="a-b-text-s-div">
+                              <p>
+                                <button
+                                  style={{ fontSize: "1rem" }}
+                                  className="name-button"
+                                >
+                                  <strong className="str-name-s">
+                                    {item.category.name}
+                                  </strong>
+                                </button>
+                              </p>
+                            </div>
+                            <p className="name-button-s-description-s">
+                              <p className="str-name-desc-s">
+                                {getExerciseDescription(item.category.name)}
+                              </p>
                             </p>
                           </div>
-                          <p className="name-button-s-description-s">
-                            <p className="str-name-desc-s">
-                              {getExerciseDescription(item.category.name)}
-                            </p>
-                          </p>
                         </div>
                       </div>
-                    </div>
+                    </Fade>
                   </li>
                 </ul>
               );
