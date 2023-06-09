@@ -228,6 +228,7 @@ nav .menu-btn,
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-out;
+
 }
 .a-box:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -267,6 +268,7 @@ nav .menu-btn,
   margin-top: 0px;
   width: 100%;
   height: 100%;
+
 }
 .a-b-img-s img {
   padding: 2px;
@@ -656,7 +658,7 @@ nav .menu-btn,
     margin-top: 0px;
     width: 100%;
     height: 100%;
-    background-color: #c6cbbb;
+    background-color: #c5caba;
   }
   .a-b-img-s img {
     margin-top: 0px;
@@ -666,7 +668,7 @@ nav .menu-btn,
 }
 @media (min-width: 1200px) {
   .a-b-img img {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 255, 255);
     margin-top: 0px;
     width: 100%;
     height: 100%;
@@ -1079,6 +1081,11 @@ nav .menu-btn,
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    background: linear-gradient(to bottom right , #403F44, #1E1B32)
+  }
+  .grid-item {
+   
+    background: linear-gradient(to bottom right , #403F44, #1E1B32)
   }
 }
 #about p {
@@ -1132,7 +1139,7 @@ nav .menu-btn,
 }
 @media (min-width: 1200px) {
   .offer_div .form-text {
-    height: 140%;
+    height: 120%;
     margin-top: -50px;
   }
 }

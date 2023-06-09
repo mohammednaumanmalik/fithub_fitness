@@ -1,6 +1,7 @@
 import React from "react";
 import aboutimage from "../Images/about.png";
 import { useState, useEffect, useRef } from "react";
+import Fade from "react-reveal/Fade";
 function About() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [divHeight, setDivHeight] = useState("auto");
@@ -21,7 +22,10 @@ function About() {
         <img src={aboutimage} alt="" />
       </div>
       <div className="about-text">
-        <h1>KNOW MORE ABOUT US</h1>
+        <Fade left>
+          {" "}
+          <h1>KNOW MORE ABOUT US</h1>{" "}
+        </Fade>
 
         <p className="p-about">
           <h5>Facilities</h5>

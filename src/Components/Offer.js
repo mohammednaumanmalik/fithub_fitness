@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Fade from "react-reveal/Fade";
 
 function Offer() {
   const [showDialog, setShowDialog] = useState(false);
@@ -49,7 +50,11 @@ function Offer() {
     <div id="presentaion">
       <div className="pr-heading">
         <h1>
-          A BIG <span>OFFER</span> FOR THIS SUMMER
+          <Fade right>
+            {" "}
+            A BIG <span>OFFER</span>{" "}
+          </Fade>{" "}
+          <Fade left> FOR THIS SUMMER </Fade>
         </h1>
         <p className="details">
           {" "}
